@@ -1,0 +1,65 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "automerge": true,
+  "automergeType": "pr",
+  "semanticCommits": "enabled",
+  "semanticCommitType": "chore",
+  "semanticCommitScope": "deps",
+  "commitBody": "Signed-off-by: Renovate Bot 🤖",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "commitMessagePrefix": "🚀 "
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "automerge": true,
+      "commitMessagePrefix": "⬆️ "
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "commitMessagePrefix": "🩹 "
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true,
+      "commitMessagePrefix": "🔧 "
+    },
+    {
+      "matchUpdateTypes": ["pin"],
+      "automerge": true,
+      "commitMessagePrefix": "📌 "
+    },
+    {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "automerge": true,
+      "commitMessagePrefix": "🔒 "
+    },
+    {
+      "matchUpdateTypes": ["rollback"],
+      "automerge": true,
+      "commitMessagePrefix": "⏪ "
+    },
+    {
+      "matchUpdateTypes": ["bump"],
+      "automerge": true,
+      "commitMessagePrefix": "🆙 "
+    }
+  ],
+  "npm": {
+    "enabled": true
+  },
+  "hostRules": [
+    {
+      "hostType": "npm",
+      "matchHost": "https://registry.npmjs.org",
+      "token": "{{ secrets.NPM_TOKEN }}"
+    }
+  ],
+  "npmrc": "registry.npmjs.org/:_authToken={{ secrets.NPM_TOKEN }}"
+}

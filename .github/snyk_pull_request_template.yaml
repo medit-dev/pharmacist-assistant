@@ -1,0 +1,27 @@
+title: "🔒️ [Snyk] Fix vulnerabilities in project {{snyk_project_name}}"
+commitMessage: "🔒 chore: fix {{ issue_count }} issues."
+description: |
+  This PR has been opened to make sure our repositories are kept up-to-date.
+
+  {{ #is_upgrade_pr }}
+  ⬆️ It updates {{ package_name }} from version {{ package_from }} to version {{ package_to }}.
+  Review relevant docs for possible breaking changes.
+  {{ /is_upgrade_pr }}
+
+
+  {{ #product_is_container }}
+  🧱 It updates container from {{ container.current_base_image_name }} to {{container.recommended_base_image_name }}
+  {{ /product_is_container }}
+
+  {{ #is_fix_pr }}
+  🔒 This PR has been opened to fix vulnerabilities in your project.
+  {{ /is_fix_pr }}
+
+  {{ #is_backlog_pr }}
+  🔒 This PR has been opened to fix known vulnerbilities.
+  These vulnerabilities are retrieved from the Project's backlog.
+  {{ /is_backlog_pr }}
+
+
+  🔗 Changes included in this PR: {{ files_changed }}
+

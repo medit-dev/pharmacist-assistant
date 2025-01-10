@@ -1,0 +1,30 @@
+name: "[node.js] Cache and Install"
+description: "Cache and install node_modules with pnpm"
+
+inputs:
+  pnpm-version:
+    description: "Defines pnpm version to use for this action"
+    required: false
+    default: "9.9.0"
+
+  node-version:
+    description: "Defines node.js version to use for this action"
+    required: false
+    default: "20.17.0"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup PNPM
+      uses: pnpm/action-setup@v4
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: "./.nvmrc"
+        cache-dependency-path: "./pnpm-lock.yaml"
+        cache: "pnpm"
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile --prefer-offline
+      shell: bash

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "sourceMaps": true,
+  "module": {
+    "type": "es6",
+    "strict": true
+  },
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true,
+      "dynamicImport": true,
+      "privateMethod": true,
+      "functionBind": true,
+      "exportDefaultFrom": true,
+      "exportNamespaceFrom": true,
+      "decoratorsBeforeExport": true,
+      "topLevelAwait": true,
+      "importMeta": true,
+      "preserveAllComments": true
+    },
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true
+    },
+    "keepClassNames": true,
+    "target": "esnext",
+    "baseUrl": "./"
+  },
+  "minify": false
+}

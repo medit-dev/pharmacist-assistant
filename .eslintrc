@@ -1,0 +1,99 @@
+{
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+        // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "sourceType":"module",
+    "ecmaVersion": "latest"
+  },
+  "plugins":[
+    "@typescript-eslint/eslint-plugin",
+    "promise",
+    "prettier",
+    "import",
+    "unicorn",
+    "security"
+  ],
+  "extends":[
+    "plugin:node/recommended",
+    "plugin:security/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:promise/recommended",
+    "plugin:unicorn/all"
+  ],
+  "root":true,
+  "env":{
+    "es2022":true,
+    "node":true
+  },
+  "ignorePatterns":[
+    ".eslintrc",
+    "**/node_modules",
+    "**/build",
+    "**/coverage",
+    "**/documentaion"
+  ],
+  "rules":{
+    "import/no-unresolved": "error",
+    "prettier/prettier":"error",
+    "node/no-extraneous-import":0,
+    "node/no-unsupported-features/es-syntax":[
+      "error",
+      {
+        "ignores":[
+          "modules",
+          "dynamicImport"
+        ]
+      }
+    ],
+
+    "node/no-missing-import": 0,
+    "@typescript-eslint/interface-name-prefix":0,
+    "@typescript-eslint/explicit-function-return-type":0,
+    "@typescript-eslint/explicit-member-accessibility":0,
+    "@typescript-eslint/indent":0,
+    "@typescript-eslint/member-delimiter-style":0,
+    "@typescript-eslint/no-unsafe-member-access":0,
+    "@typescript-eslint/no-unsafe-call":0,
+    "@typescript-eslint/no-unsafe-assignment":0,
+    "@typescript-eslint/explicit-module-boundary-types":0,
+    "@typescript-eslint/no-explicit-any":0,
+    "@typescript-eslint/no-var-requires":0,
+    "@typescript-eslint/no-use-before-define":0,
+    "@typescript-eslint/no-unused-vars":0,
+    "unicorn/prefer-top-level-await": 0,
+    "node/no-unpublished-import": 0,
+    "unicorn/no-array-method-this-argument": 1,
+    "unicorn/no-array-callback-reference": 0,
+    "unicorn/filename-case": 0,
+    "unicorn/prevent-abbreviations": 0,
+    "unicorn/prefer-module": 0,
+    "no-console":[
+      2,
+      {
+        "allow":[
+          "warn",
+          "error",
+          "log"
+        ]
+      }
+    ]
+  }
+}
