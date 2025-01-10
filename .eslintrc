@@ -10,6 +10,10 @@
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
+    },
+    "perfectionist": {
+      "type": "line-length",
+      "partitionByComment": true
     }
   },
   "parser": "@typescript-eslint/parser",
@@ -24,10 +28,12 @@
     "prettier",
     "import",
     "unicorn",
-    "security"
+    "security",
+    "perfectionist"
   ],
   "extends": [
     "plugin:node/recommended",
+    "plugin:n/recommended",
     "plugin:security/recommended-legacy",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
@@ -47,6 +53,11 @@
     "**/documentation"
   ],
   "rules": {
+    "n/exports-style": ["error", "module.exports"],
+    "perfectionist/sort-objects": ["error", {
+      "type": "alphabetical"
+    }],
+    "perfectionist/sort-interfaces": ["error"],
     "import/no-unresolved": "error",
     "prettier/prettier": "error",
     "node/no-extraneous-import": 0,
