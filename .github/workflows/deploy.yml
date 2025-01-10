@@ -52,3 +52,32 @@ jobs:
           command: monitor
           args: --fail-fast --dev --all-projects --remote-repo-url=https://github.com/${{ github.repository }}.git
 
+      #      - name: Check for code vulnerabilities
+      #        id: snyk_code
+      #        uses: snyk/actions/node@master
+      #        env:
+      #          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      #        with:
+      #          command: code test
+      #          args: --all-projects --sarif-file-output=snyk-code.sarif
+
+      #      - name: Check Dockerfile for vulnerabilities
+      #        id: snyk_docker
+      #        uses: snyk/actions/docker@master
+      #        env:
+      #          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      #        with:
+      #          dockerfile: Dockerfile
+      #          args: --sarif-file-output=snyk-docker.sarif
+      #
+      #      - name: Upload code vulnerabilities to GitHub Code Scanning
+      #        uses: github/codeql-action/upload-sarif@v2
+      #        with:
+      #          sarif_file: snyk-code.sarif
+      #          category: "Snyk Code"
+      #
+      #      - name: Upload Dockerfile vulnerabilities to GitHub Code Scanning
+      #        uses: github/codeql-action/upload-sarif@v2
+      #        with:
+      #          sarif_file: snyk-docker.sarif
+      #          category: "Snyk Dockerfile"
