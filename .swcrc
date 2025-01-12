@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/swcrc",
   "sourceMaps": true,
   "module": {
-    "type": "es6",
+    "type": "commonjs",
     "strict": true
   },
   "jsc": {

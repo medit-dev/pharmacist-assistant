@@ -5,7 +5,7 @@ inputs:
   pnpm-version:
     description: "Defines pnpm version to use for this action"
     required: false
-    default: "9.9.0"
+    default: "10.0.0"
 
   node-version:
     description: "Defines node.js version to use for this action"
