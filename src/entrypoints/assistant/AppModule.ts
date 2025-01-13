@@ -1,19 +1,17 @@
 import { Module } from '@nestjs/common';
 import { LoggerModule } from 'nestjs-pino';
-// import { ConfigModule } from 'src/core/infrastructure/config/ConfigModule';
-import { RootConfig } from 'src/core/infrastructure/config/configs/RootConfig';
 import { ErrorHandlerModule } from 'src/core/infrastructure/error-handler/ErrorHandlerModule';
 import { ConfigModule } from 'src/core/infrastructure/config/ConfigModule';
+import { AppConfig } from 'src/core/infrastructure/config/configs/AppConfig';
 
 @Module({
   imports: [
     LoggerModule.forRootAsync({
-      inject: [RootConfig],
-      useFactory: (config: RootConfig) => {
-        console.log(config);
+      inject: [AppConfig],
+      useFactory: (config: AppConfig) => {
         return {
           pinoHttp: {
-            level: config.app.logLevel,
+            level: config.logLevel,
             transport: {
               options: {
                 ignore: 'pid,hostname,context',

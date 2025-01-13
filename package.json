@@ -14,6 +14,8 @@
   "scripts": {
     "build:assistant": "nest build --config ./src/entrypoints/assistant/nest-cli.json",
     "start:assistant:dev": "nest start --watch --config ./src/entrypoints/assistant/nest-cli.json",
+    "build:embeding": "nest build --config ./src/entrypoints/embedding/nest-cli.json",
+    "start:embeding:dev": "nest start --watch --config ./src/entrypoints/embedding/nest-cli.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -27,9 +29,15 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@huggingface/inference": "2",
+    "@langchain/community": "^0.3.24",
+    "@langchain/core": "^0.3.29",
+    "@langchain/openai": "^0.3.17",
+    "@langchain/pinecone": "^0.1.3",
     "@nestjs/common": "^10.4.15",
     "@nestjs/core": "^10.4.15",
     "@nestjs/platform-express": "^10.4.15",
+    "@pinecone-database/pinecone": "^4.1.0",
     "@sentry/node": "^8.48.0",
     "@sentry/profiling-node": "^8.48.0",
     "class-transformer": "0.5.1",
@@ -38,6 +46,7 @@
     "dotenv": "^16.4.7",
     "dotenv-expand": "^12.0.1",
     "helmet": "^8.0.0",
+    "nest-commander": "^3.15.0",
     "nest-typed-config": "^2.9.3",
     "nestjs-pino": "^4.2.0",
     "pino-http": "^10.3.0",
