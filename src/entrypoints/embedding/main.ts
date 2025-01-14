@@ -15,9 +15,6 @@ export async function bootstrap(): Promise<void> {
         bufferLogs: true,
       });
     }
-    // Starts listening for shutdown hooks
-    app.enableShutdownHooks();
-
     app.useLogger(app.get(Logger));
 
     await CommandFactory.runApplication(app);

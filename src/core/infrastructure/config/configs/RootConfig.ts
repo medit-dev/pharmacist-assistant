@@ -4,6 +4,7 @@ import { Type } from 'class-transformer';
 import { AppConfig } from 'src/core/infrastructure/config/configs/AppConfig';
 import { PineconeConfig } from 'src/core/infrastructure/database/vector/adapters/pinecone/PineconeConfig';
 import { ModelConfig } from 'src/core/infrastructure/config/configs/ModelConfig';
+import { SplitterConfig } from 'src/core/infrastructure/spliter/SplitterConfig';
 
 export class RootConfig {
   @IsString()
@@ -21,4 +22,8 @@ export class RootConfig {
   @Type(() => ModelConfig)
   @ValidateNested()
   public readonly model!: ModelConfig;
+
+  @Type(() => SplitterConfig)
+  @ValidateNested()
+  public readonly splitter!: SplitterConfig;
 }

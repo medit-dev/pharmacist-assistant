@@ -15,4 +15,7 @@ export class AppConfig {
 
   @IsString()
   public readonly logLevel: string = 'debug';
+
+  @IsString()
+  public readonly csvFilename: string = 'Medicine_Details.csv';
 }
