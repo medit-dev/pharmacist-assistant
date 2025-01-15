@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { LoggerModule } from 'nestjs-pino';
-import { ErrorHandlerModule } from 'src/core/infrastructure/error-handler/ErrorHandlerModule';
+import { ErrorHandlerModule } from 'src/core/infrastructure/error-handler/errorHandler.module';
 import { ConfigModule } from 'src/core/infrastructure/config/ConfigModule';
 import { AppConfig } from 'src/core/infrastructure/config/configs/AppConfig';
-import { VectorDatabaseModule } from 'src/core/infrastructure/database/vector/VectorDatabaseModule';
-import { EmbeddingModule as EmbedderModule } from 'src/core/infrastructure/embedding/EmbeddingModule';
-import { EmbeddingModule } from 'src/modules/embedding/EmbeddingModule';
-import { SplitterModule } from 'src/core/infrastructure/spliter/SplitterModule';
+import { VectorDatabaseModule } from 'src/core/infrastructure/database/vector/vectorDatabase.module';
+import { EmbeddingModule as EmbedderModule } from 'src/core/infrastructure/embedding/embedding.module';
+import { EmbeddingModule } from 'src/modules/embedding/embedding.module';
+import { SplitterModule } from 'src/core/infrastructure/spliter/splitter.module';
 
 @Module({
   imports: [

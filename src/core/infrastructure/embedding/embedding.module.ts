@@ -1,6 +1,6 @@
 import { Global, Module } from '@nestjs/common';
 import { EmbeddingPort } from 'src/core/infrastructure/embedding/embedding.port';
-import { HuggingfaceAdapter } from 'src/core/infrastructure/embedding/adapters/hugging-face/huggingface.adapter';
+import { OpenAIAdapter } from 'src/core/infrastructure/embedding/adapters/hugging-face/openai.adapter';
 
 @Global()
 @Module({
@@ -8,7 +8,7 @@ import { HuggingfaceAdapter } from 'src/core/infrastructure/embedding/adapters/h
   providers: [
     {
       provide: EmbeddingPort,
-      useClass: HuggingfaceAdapter,
+      useClass: OpenAIAdapter,
     },
   ],
 })

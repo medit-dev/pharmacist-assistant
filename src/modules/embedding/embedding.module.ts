@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { CreateEmbeddingModule } from 'src/modules/embedding/create-embedding/CreateEmbeddingModule';
+import { CreateEmbeddingModule } from 'src/modules/embedding/create-embedding/createEmbedding.module';
 
 @Module({
   exports: [CreateEmbeddingModule],

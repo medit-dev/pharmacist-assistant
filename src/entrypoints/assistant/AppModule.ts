@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { LoggerModule } from 'nestjs-pino';
-import { ErrorHandlerModule } from 'src/core/infrastructure/error-handler/ErrorHandlerModule';
+import { ErrorHandlerModule } from 'src/core/infrastructure/error-handler/errorHandler.module';
 import { ConfigModule } from 'src/core/infrastructure/config/ConfigModule';
 import { AppConfig } from 'src/core/infrastructure/config/configs/AppConfig';
 

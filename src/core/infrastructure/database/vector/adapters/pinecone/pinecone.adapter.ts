@@ -21,17 +21,21 @@ export class PineconeAdapter extends VectorDatabasePort<Index> {
   }
 
   async createIndex() {
-    await this.client.createIndex({
-      dimension: this.modelConfig.dimension,
-      metric: 'cosine',
-      name: this.config.index,
-      spec: {
-        serverless: {
-          cloud: this.config.cloud,
-          region: this.config.region,
+    try {
+      await this.client.createIndex({
+        dimension: this.modelConfig.dimension,
+        metric: 'cosine',
+        name: this.config.index,
+        spec: {
+          serverless: {
+            cloud: this.config.cloud,
+            region: this.config.region,
+          },
         },
-      },
-    });
+      });
+    } catch (err) {
+      throw err;
+    }
   }
 
   async getIndex() {

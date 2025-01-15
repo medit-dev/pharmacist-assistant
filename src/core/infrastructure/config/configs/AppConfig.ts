@@ -18,4 +18,8 @@ export class AppConfig {
 
   @IsString()
   public readonly csvFilename: string = 'Medicine_Details.csv';
+
+  @IsInt()
+  @Type(() => Number)
+  public readonly batch: number = 10;
 }

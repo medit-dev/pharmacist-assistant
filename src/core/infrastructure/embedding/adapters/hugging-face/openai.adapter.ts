@@ -2,20 +2,20 @@ import { Injectable } from '@nestjs/common';
 
 import { EmbeddingPort } from 'src/core/infrastructure/embedding/embedding.port';
 import { ModelConfig } from 'src/core/infrastructure/config/configs/ModelConfig';
-import { HuggingFaceInferenceEmbeddings } from '@langchain/community/embeddings/hf';
+import { OpenAIEmbeddings } from '@langchain/openai';
 
 @Injectable()
-export class HuggingfaceAdapter extends EmbeddingPort<HuggingFaceInferenceEmbeddings> {
-  private readonly _model: HuggingFaceInferenceEmbeddings;
+export class OpenAIAdapter extends EmbeddingPort<OpenAIEmbeddings> {
+  private readonly _model: OpenAIEmbeddings;
 
-  get model(): HuggingFaceInferenceEmbeddings {
+  get model(): OpenAIEmbeddings {
     return this._model;
   }
 
   constructor(private readonly modelConfig: ModelConfig) {
     super();
 
-    this._model = new HuggingFaceInferenceEmbeddings({
+    this._model = new OpenAIEmbeddings({
       apiKey: this.modelConfig.apiKey,
       model: this.modelConfig.name,
     });
