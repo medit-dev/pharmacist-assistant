@@ -17,7 +17,7 @@ export class OpenAIAdapter extends EmbeddingPort<OpenAIEmbeddings> {
 
     this._model = new OpenAIEmbeddings({
       apiKey: this.modelConfig.apiKey,
-      model: this.modelConfig.name,
+      model: this.modelConfig.embedding,
     });
   }
 

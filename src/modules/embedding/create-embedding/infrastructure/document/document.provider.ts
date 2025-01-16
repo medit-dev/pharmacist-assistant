@@ -6,13 +6,6 @@ export enum SearchPriority {
   LOW = 3, // Najniższy priorytet
 }
 
-export type DocumentType =
-  | 'complete'
-  | 'composition_effects' // skład + skutki uboczne
-  | 'composition_uses' // skład + zastosowania
-  | 'uses_effects' // zastosowania + skutki uboczne
-  | 'ingredient_specific'; // informacje o konkretnym składniku
-
 export const DOCUMENT_PRIORITIES: Record<DocumentType, SearchPriority> = {
   complete: SearchPriority.HIGH,
   composition_effects: SearchPriority.HIGH,
@@ -41,6 +34,14 @@ export type DocumentKey =
   | 'manufacturer'
   | 'uses'
   | 'sideEffects';
+
+export enum DocumentType {
+  COMPLETE = 'complete',
+  COMPOSITION_EFFECTS = 'composition_effects',
+  USES_EFFECTS = 'uses_effects',
+  COMPOSITION_USES = 'composition_uses',
+  INGREDIENT_SPECIFIC = 'ingredient_specific',
+}
 
 export type DocumentStructure = Record<DocumentKey, string>;
 
@@ -115,7 +116,7 @@ export class DocumentProvider {
       new Document({
         metadata: {
           ...this.generateMetadata(parsedDocument),
-          documentType: 'complete',
+          documentType: DocumentType.COMPLETE,
           searchPriority: DOCUMENT_PRIORITIES.complete,
         },
         pageContent: DOCUMENT_TEMPLATES.complete(parsedDocument).trim(),
@@ -132,7 +133,7 @@ export class DocumentProvider {
       new Document({
         metadata: {
           ...this.generateMetadata(parsedDocument),
-          documentType: 'composition_effects',
+          documentType: DocumentType.COMPOSITION_EFFECTS,
           searchPriority: DOCUMENT_PRIORITIES.composition_effects,
         },
         pageContent:
@@ -150,7 +151,7 @@ export class DocumentProvider {
       new Document({
         metadata: {
           ...this.generateMetadata(parsedDocument),
-          documentType: 'composition_uses',
+          documentType: DocumentType.COMPOSITION_USES,
           searchPriority: DOCUMENT_PRIORITIES.composition_uses,
         },
         pageContent: DOCUMENT_TEMPLATES.composition_uses(parsedDocument).trim(),
@@ -165,7 +166,7 @@ export class DocumentProvider {
       new Document({
         metadata: {
           ...this.generateMetadata(parsedDocument),
-          documentType: 'uses_effects',
+          documentType: DocumentType.USES_EFFECTS,
           searchPriority: DOCUMENT_PRIORITIES.uses_effects,
         },
         pageContent: DOCUMENT_TEMPLATES.uses_effects(parsedDocument).trim(),
@@ -185,7 +186,7 @@ export class DocumentProvider {
         new Document({
           metadata: {
             ...this.generateMetadata(parsedDocument),
-            documentType: 'ingredient_specific',
+            documentType: DocumentType.INGREDIENT_SPECIFIC,
             ingredients: [trimmedIngredient],
             searchPriority: DOCUMENT_PRIORITIES.ingredient_specific,
           },
