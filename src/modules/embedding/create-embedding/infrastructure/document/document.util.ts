@@ -108,7 +108,7 @@ export class DocumentParser {
     this.rawDocument.composition = Array.from(
       cleanedComposition.matchAll(regex),
     )
-      ?.map(([, ingredient, dosage]) => `${ingredient} w dawce ${dosage}`)
+      ?.map(([, ingredient, dosage]) => `${ingredient} in a dose of ${dosage}`)
       .join(', ')
       .replace(/,\s*,/g, ',') // usuń podwójne przecinki
       .replace(/\s{2,}/g, ' ') // usuń wielokrotne spacje

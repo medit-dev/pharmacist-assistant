@@ -1,19 +1,5 @@
 import { Document } from '@langchain/core/documents';
 
-export enum SearchPriority {
-  HIGH = 1, // Najwyższy priorytet
-  MEDIUM = 2, // Średni priorytet
-  LOW = 3, // Najniższy priorytet
-}
-
-export const DOCUMENT_PRIORITIES: Record<DocumentType, SearchPriority> = {
-  complete: SearchPriority.HIGH,
-  composition_effects: SearchPriority.HIGH,
-  composition_uses: SearchPriority.MEDIUM,
-  ingredient_specific: SearchPriority.LOW,
-  uses_effects: SearchPriority.MEDIUM,
-};
-
 export type DocumentMetadata = Readonly<{
   medicineName: string;
   documentType: DocumentType;
@@ -27,6 +13,24 @@ export type DocumentMetadata = Readonly<{
     sideEffects: boolean;
   };
 }>;
+
+export type ExtendedDocument = Document & {
+  metadata: DocumentMetadata;
+};
+
+export enum SearchPriority {
+  HIGH = 1, // Najwyższy priorytet
+  MEDIUM = 2, // Średni priorytet
+  LOW = 3, // Najniższy priorytet
+}
+
+export const DOCUMENT_PRIORITIES: Record<DocumentType, SearchPriority> = {
+  complete: SearchPriority.HIGH,
+  composition_effects: SearchPriority.HIGH,
+  composition_uses: SearchPriority.MEDIUM,
+  ingredient_specific: SearchPriority.LOW,
+  uses_effects: SearchPriority.MEDIUM,
+};
 
 export type DocumentKey =
   | 'medicineName'
@@ -47,31 +51,31 @@ export type DocumentStructure = Record<DocumentKey, string>;
 
 export const DOCUMENT_TEMPLATES = {
   complete: (document: DocumentStructure) => `
-    Lek: ${document.medicineName}
-    Skład: ${document.composition})
-    Zastosowanie: ${document.uses}
-    Skutki uboczne: ${document.sideEffects}
+    Medicine: ${document.medicineName}
+    Composition: ${document.composition})
+    Uses: ${document.uses}
+    Side effects: ${document.sideEffects}
   `,
 
   composition_effects: (document: DocumentStructure) => `
-    Lek ${document.medicineName} zawiera ${document.composition}).
-    Podczas stosowania tego leku mogą wystąpić następujące skutki uboczne: ${document.sideEffects}.
+    Medicine ${document.medicineName} contains ${document.composition}).
+    The following side effects may occur while using this medicine: ${document.sideEffects}.
   `,
 
   composition_uses: (document: DocumentStructure) => `
-    Lek ${document.medicineName} zawierający ${document.composition})
-    jest stosowany w następujących przypadkach: ${document.uses}.
+    Medicine ${document.medicineName} containing ${document.composition})
+    is used in the following cases: ${document.uses}.
   `,
 
   ingredient_specific: (document: DocumentStructure, ingredient: string) => `
-    Składnik ${ingredient} występuje w leku ${document.medicineName}.
-    Jest stosowany w: ${document.uses}.
-    Może powodować: ${document.sideEffects}.
+    Ingredient ${ingredient} is present in medicine ${document.medicineName}.
+    It is used for: ${document.uses}.
+    It may cause: ${document.sideEffects}.
   `,
 
   uses_effects: (document: DocumentStructure) => `
-    Lek ${document.medicineName} stosowany w: ${document.uses}
-    może powodować następujące skutki uboczne: ${document.sideEffects}.
+    Medicine ${document.medicineName} used for: ${document.uses}
+    may cause the following side effects: ${document.sideEffects}.
   `,
 };
 

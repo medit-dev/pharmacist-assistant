@@ -16,10 +16,7 @@ const SEARCH_STRATEGIES = {
   composition: {
     filter: {
       documentType: {
-        $in: [
-          DocumentType.COMPLETE,
-          DocumentType.INGREDIENT_SPECIFIC,
-        ] as DocumentType[],
+        $in: [DocumentType.COMPLETE, DocumentType.INGREDIENT_SPECIFIC],
       },
       searchPriority: { $lte: 2 },
     },
@@ -39,7 +36,7 @@ const SEARCH_STRATEGIES = {
           DocumentType.COMPLETE,
           DocumentType.USES_EFFECTS,
           DocumentType.COMPOSITION_EFFECTS,
-        ] as DocumentType[],
+        ],
       },
       searchPriority: { $lte: 2 },
     },
@@ -61,10 +58,7 @@ const SEARCH_STRATEGIES = {
   usage: {
     filter: {
       documentType: {
-        $in: [
-          DocumentType.COMPLETE,
-          DocumentType.COMPOSITION_USES,
-        ] as DocumentType[],
+        $in: [DocumentType.COMPLETE, DocumentType.COMPOSITION_USES],
       },
       searchPriority: { $lte: 3 },
     },

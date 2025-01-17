@@ -1,8 +1,7 @@
-import { Global, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { EmbeddingPort } from 'src/core/infrastructure/embedding/embedding.port';
-import { OpenAIAdapter } from 'src/core/infrastructure/embedding/adapters/hugging-face/openai.adapter';
+import { OpenAIAdapter } from 'src/core/infrastructure/embedding/adapters/openai/openai.adapter';
 
-@Global()
 @Module({
   exports: [EmbeddingPort],
   providers: [

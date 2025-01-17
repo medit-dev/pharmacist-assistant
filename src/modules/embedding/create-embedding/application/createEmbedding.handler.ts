@@ -1,8 +1,6 @@
 import { VectorDatabasePort } from 'src/core/infrastructure/database/vector/vector-database.port';
 import { Index } from '@pinecone-database/pinecone';
 import { PineconeStore } from '@langchain/pinecone';
-import { EmbeddingPort } from 'src/core/infrastructure/embedding/embedding.port';
-import { HuggingFaceInferenceEmbeddings } from '@langchain/community/embeddings/hf';
 import { Injectable, Logger } from '@nestjs/common';
 import { Document } from '@langchain/core/documents';
 import { CsvProvider } from 'src/modules/embedding/create-embedding/infrastructure/csv/csv.provider';
@@ -15,18 +13,21 @@ import { DocumentParser } from 'src/modules/embedding/create-embedding/infrastru
 import { RecursiveCharacterTextSplitter } from '@langchain/textsplitters';
 import { SplitterPort } from 'src/core/infrastructure/spliter/splitter.port';
 import { AppConfig } from 'src/core/infrastructure/config/configs/AppConfig';
+import { OpenAIEmbeddings } from '@langchain/openai';
 
 @Injectable()
 export class CreateEmbeddingHandler {
   private readonly logger = new Logger(CreateEmbeddingHandler.name);
-  store?: PineconeStore;
 
   constructor(
-    private readonly vectorDatabase: VectorDatabasePort<Index>,
-    private readonly embedding: EmbeddingPort<HuggingFaceInferenceEmbeddings>,
+    private readonly vectorDatabase: VectorDatabasePort<
+      Index,
+      OpenAIEmbeddings,
+      PineconeStore
+    >,
     private readonly csvParser: CsvProvider,
     private readonly config: AppConfig,
-    private readonly splliter: SplitterPort<
+    private readonly splitter: SplitterPort<
       RecursiveCharacterTextSplitter,
       Document
     >,
@@ -34,16 +35,13 @@ export class CreateEmbeddingHandler {
 
   async handle() {
     try {
-      this.store = await PineconeStore.fromExistingIndex(this.embedding.model, {
-        pineconeIndex: await this.vectorDatabase.getIndex(),
-      });
+      const store = await this.vectorDatabase.vectorStore();
 
       this.csvParser
         .parse()
         .pipe(
           bufferCount(this.config.batch),
           mergeMap(async (ev) => {
-            // Przetwarzamy każdą paczkę dokumentów
             const documents = ev.map((ev) => {
               const document: DocumentStructure = {
                 composition: ev.Composition,
@@ -62,9 +60,9 @@ export class CreateEmbeddingHandler {
               return docProvider.generateAll(doc).documents;
             });
 
-            const splitDocs = await this.splliter.splitDocuments(processedDocs);
+            const splitDocs = await this.splitter.splitDocuments(processedDocs);
             try {
-              await this.store?.addDocuments(splitDocs);
+              await store.addDocuments(splitDocs);
             } catch (err) {
               this.logger.error(err);
             }

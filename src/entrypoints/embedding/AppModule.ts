@@ -4,7 +4,6 @@ import { ErrorHandlerModule } from 'src/core/infrastructure/error-handler/errorH
 import { ConfigModule } from 'src/core/infrastructure/config/ConfigModule';
 import { AppConfig } from 'src/core/infrastructure/config/configs/AppConfig';
 import { VectorDatabaseModule } from 'src/core/infrastructure/database/vector/vectorDatabase.module';
-import { EmbeddingModule as EmbedderModule } from 'src/core/infrastructure/embedding/embedding.module';
 import { EmbeddingModule } from 'src/modules/embedding/embedding.module';
 import { SplitterModule } from 'src/core/infrastructure/spliter/splitter.module';
 
@@ -29,7 +28,6 @@ import { SplitterModule } from 'src/core/infrastructure/spliter/splitter.module'
     ConfigModule,
     ErrorHandlerModule,
     VectorDatabaseModule,
-    EmbedderModule,
     SplitterModule,
     EmbeddingModule,
   ],

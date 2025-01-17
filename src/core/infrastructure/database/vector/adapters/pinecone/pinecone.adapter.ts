@@ -3,9 +3,18 @@ import { VectorDatabasePort } from 'src/core/infrastructure/database/vector/vect
 import { PineconeConfig } from 'src/core/infrastructure/database/vector/adapters/pinecone/PineconeConfig';
 import { Index, Pinecone } from '@pinecone-database/pinecone';
 import { ModelConfig } from 'src/core/infrastructure/config/configs/ModelConfig';
+import {
+  QuestionPatterns,
+  SearchService,
+} from 'src/modules/chat/corresponding/providers/search.service';
+import { PineconeStore } from '@langchain/pinecone';
+import type { EmbeddingsInterface } from '@langchain/core/embeddings';
+import { ExtendedDocument } from 'src/modules/embedding/create-embedding/infrastructure/document/document.provider';
 
 @Injectable()
-export class PineconeAdapter extends VectorDatabasePort<Index> {
+export class PineconeAdapter<
+  EmbeddingModel extends EmbeddingsInterface,
+> extends VectorDatabasePort<Index, EmbeddingModel, PineconeStore> {
   private readonly logger = new Logger('PineconeAdapter');
   private readonly client: Pinecone;
 
@@ -44,6 +53,40 @@ export class PineconeAdapter extends VectorDatabasePort<Index> {
 
       return this.client.Index(name, host);
     } catch (err) {
+      throw err;
+    }
+  }
+
+  async vectorStore(): Promise<PineconeStore> {
+    try {
+      return await PineconeStore.fromExistingIndex(this.embedding.model, {
+        pineconeIndex: await this.getIndex(),
+      });
+    } catch (err: unknown) {
+      this.logger.error(err);
+      throw err;
+    }
+  }
+
+  async similaritySearch<Document extends ExtendedDocument>(
+    question: string,
+    questionPatterns: QuestionPatterns,
+  ): Promise<Array<Document>> {
+    try {
+      const searchService = new SearchService(questionPatterns);
+
+      const { filter, limit } = searchService.getSearchParams(question);
+
+      const store = await this.vectorStore();
+
+      return (await store.similaritySearch(
+        question,
+        limit,
+        filter,
+      )) as Array<Document>;
+    } catch (err: unknown) {
+      this.logger.error(err);
+
       throw err;
     }
   }
