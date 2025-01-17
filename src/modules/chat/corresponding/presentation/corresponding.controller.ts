@@ -23,10 +23,6 @@ export class CorrespondingController {
   @Post()
   @HttpCode(HttpStatus.OK)
   async chat(@Body() { query }: ChatDTO) {
-    // const content = await this.model
-    //   .withStructuredOutput(responseSchema)
-    //   .invoke(query);
-
     const contextLabels = {
       complete: 'COMPLETE INFORMATION',
       composition_effects: 'COMPOSITION AND EFFECTS',
