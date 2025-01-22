@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@huggingface/inference':
-        specifier: '2'
-        version: 2.8.1
+        specifier: '3'
+        version: 3.0.0
       '@langchain/community':
         specifier: ^0.3.24
-        version: 0.3.26(@browserbasehq/sdk@2.0.0)(@browserbasehq/stagehand@1.9.0(@playwright/test@1.49.1)(deepmerge@4.3.1)(dotenv@16.4.7)(openai@4.78.1(zod@3.24.1))(zod@3.24.1))(@huggingface/inference@2.8.1)(@ibm-cloud/watsonx-ai@1.3.1)(@langchain/core@0.3.29(openai@4.78.1(zod@3.24.1)))(@pinecone-database/pinecone@4.1.0)(axios@1.7.9)(ibm-cloud-sdk-core@5.1.1)(ignore@5.3.2)(jsonwebtoken@9.0.2)(lodash@4.17.21)(openai@4.78.1(zod@3.24.1))(playwright@1.49.1)(ws@8.18.0)
+        version: 0.3.26(@browserbasehq/sdk@2.0.0)(@browserbasehq/stagehand@1.9.0(@playwright/test@1.49.1)(deepmerge@4.3.1)(dotenv@16.4.7)(openai@4.78.1(zod@3.24.1))(zod@3.24.1))(@huggingface/inference@3.0.0)(@ibm-cloud/watsonx-ai@1.3.1)(@langchain/core@0.3.29(openai@4.78.1(zod@3.24.1)))(@pinecone-database/pinecone@4.1.0)(axios@1.7.9)(ibm-cloud-sdk-core@5.1.1)(ignore@5.3.2)(jsonwebtoken@9.0.2)(lodash@4.17.21)(openai@4.78.1(zod@3.24.1))(playwright@1.49.1)(ws@8.18.0)
       '@langchain/core':
         specifier: ^0.3.29
         version: 0.3.29(openai@4.78.1(zod@3.24.1))
@@ -443,12 +443,12 @@ packages:
       '@nestjs/common': ^10.x
       '@nestjs/core': ^10.x
 
-  '@huggingface/inference@2.8.1':
-    resolution: {integrity: sha512-EfsNtY9OR6JCNaUa5bZu2mrs48iqeTz0Gutwf+fU0Kypx33xFQB4DKMhp8u4Ee6qVbLbNWvTHuWwlppLQl4p4Q==}
+  '@huggingface/inference@3.0.0':
+    resolution: {integrity: sha512-Jqbny7LnesUBpPyus5sEw5gdD3DXrP1IoiQUHGJSD2yzvUSr+XRIH9gBdx9HarL44/P7R8zUwS3hjcEcpqFFig==}
     engines: {node: '>=18'}
 
-  '@huggingface/tasks@0.12.30':
-    resolution: {integrity: sha512-A1ITdxbEzx9L8wKR8pF7swyrTLxWNDFIGDLUWInxvks2ruQ8PLRBZe8r0EcjC3CDdtlj9jV1V4cgV35K/iy3GQ==}
+  '@huggingface/tasks@0.13.16':
+    resolution: {integrity: sha512-2kniw63zvyBOPzMWGMbLvTLJkUHhr+nRcvh/qC5g3AfHdqCjs22+6CsUgSKFn2wnEAoJV3W6GiOUAPud4kMxFA==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -5596,11 +5596,11 @@ snapshots:
       '@nestjs/core': 10.4.15(@nestjs/common@10.4.15(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.4.15)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       lodash: 4.17.21
 
-  '@huggingface/inference@2.8.1':
+  '@huggingface/inference@3.0.0':
     dependencies:
-      '@huggingface/tasks': 0.12.30
+      '@huggingface/tasks': 0.13.16
 
-  '@huggingface/tasks@0.12.30': {}
+  '@huggingface/tasks@0.13.16': {}
 
   '@humanfs/core@0.19.1': {}
 
@@ -5909,7 +5909,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@langchain/community@0.3.26(@browserbasehq/sdk@2.0.0)(@browserbasehq/stagehand@1.9.0(@playwright/test@1.49.1)(deepmerge@4.3.1)(dotenv@16.4.7)(openai@4.78.1(zod@3.24.1))(zod@3.24.1))(@huggingface/inference@2.8.1)(@ibm-cloud/watsonx-ai@1.3.1)(@langchain/core@0.3.29(openai@4.78.1(zod@3.24.1)))(@pinecone-database/pinecone@4.1.0)(axios@1.7.9)(ibm-cloud-sdk-core@5.1.1)(ignore@5.3.2)(jsonwebtoken@9.0.2)(lodash@4.17.21)(openai@4.78.1(zod@3.24.1))(playwright@1.49.1)(ws@8.18.0)':
+  '@langchain/community@0.3.26(@browserbasehq/sdk@2.0.0)(@browserbasehq/stagehand@1.9.0(@playwright/test@1.49.1)(deepmerge@4.3.1)(dotenv@16.4.7)(openai@4.78.1(zod@3.24.1))(zod@3.24.1))(@huggingface/inference@3.0.0)(@ibm-cloud/watsonx-ai@1.3.1)(@langchain/core@0.3.29(openai@4.78.1(zod@3.24.1)))(@pinecone-database/pinecone@4.1.0)(axios@1.7.9)(ibm-cloud-sdk-core@5.1.1)(ignore@5.3.2)(jsonwebtoken@9.0.2)(lodash@4.17.21)(openai@4.78.1(zod@3.24.1))(playwright@1.49.1)(ws@8.18.0)':
     dependencies:
       '@browserbasehq/stagehand': 1.9.0(@playwright/test@1.49.1)(deepmerge@4.3.1)(dotenv@16.4.7)(openai@4.78.1(zod@3.24.1))(zod@3.24.1)
       '@ibm-cloud/watsonx-ai': 1.3.1
@@ -5928,7 +5928,7 @@ snapshots:
       zod-to-json-schema: 3.24.1(zod@3.24.1)
     optionalDependencies:
       '@browserbasehq/sdk': 2.0.0
-      '@huggingface/inference': 2.8.1
+      '@huggingface/inference': 3.0.0
       '@pinecone-database/pinecone': 4.1.0
       ignore: 5.3.2
       jsonwebtoken: 9.0.2
@@ -7238,7 +7238,7 @@ snapshots:
   axios@1.7.4(debug@4.4.0):
     dependencies:
       follow-redirects: 1.15.9(debug@4.4.0)
-      form-data: 4.0.0
+      form-data: 4.0.1
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug

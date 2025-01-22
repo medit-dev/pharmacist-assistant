@@ -29,7 +29,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@huggingface/inference": "2",
+    "@huggingface/inference": "3",
     "@langchain/community": "^0.3.24",
     "@langchain/core": "^0.3.29",
     "@langchain/openai": "^0.3.17",
