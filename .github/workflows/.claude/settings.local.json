@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "WebFetch(domain:docs.snyk.io)",
-      "WebFetch(domain:github.com)"
-    ]
-  }
-}
