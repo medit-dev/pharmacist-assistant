@@ -104,7 +104,7 @@ importers:
         version: 1.10.9
       '@types/compression':
         specifier: ^1.7.5
-        version: 1.7.5
+        version: 1.8.1
       '@types/express':
         specifier: ^5.0.0
         version: 5.0.6
@@ -1891,8 +1891,8 @@ packages:
   '@types/body-parser@1.19.6':
     resolution: {integrity: sha512-HLFeCYgz89uk22N5Qg3dvGvsv46B8GLvKKo1zKG4NybA8U2DiEO3w9lqGg29t/tfLRJpJ6iQxnVw4OnB7MoM9g==}
 
-  '@types/compression@1.7.5':
-    resolution: {integrity: sha512-AAQvK5pxMpaT+nDvhHrsBhLSYG5yQdtkaJE1WYieSNY2mVFKAgmU4ks65rkZD5oqnGCFLyQpUr1CqI4DmUMyDg==}
+  '@types/compression@1.8.1':
+    resolution: {integrity: sha512-kCFuWS0ebDbmxs0AXYn6e2r2nrGAb5KwQhknjSPSPgJcGd8+HVSILlUyFhGqML2gk39HcG7D1ydW9/qpYkN00Q==}
 
   '@types/connect@3.4.36':
     resolution: {integrity: sha512-P63Zd/JUGq+PdrM1lv0Wv5SBYeA2+CORvbrXbngriYY0jzLUWfQMQQxOhjONEz/wlHOAxOdY7CY65rgQdTjq2w==}
@@ -7154,9 +7154,10 @@ snapshots:
       '@types/connect': 3.4.38
       '@types/node': 20.17.16
 
-  '@types/compression@1.7.5':
+  '@types/compression@1.8.1':
     dependencies:
       '@types/express': 5.0.6
+      '@types/node': 20.17.16
 
   '@types/connect@3.4.36':
     dependencies:
@@ -9656,7 +9657,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 20.19.37
+      '@types/node': 20.17.16
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
