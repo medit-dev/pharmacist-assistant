@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Uses composite action at .github/actions — sets up pnpm + node + installs deps
       - name: Setup Node & Install Dependencies
