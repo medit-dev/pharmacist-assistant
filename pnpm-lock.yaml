@@ -154,8 +154,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.1
       eslint-plugin-unicorn:
-        specifier: ^66.0.0
-        version: 66.0.0(eslint@10.5.0)
+        specifier: ^67.0.0
+        version: 67.0.0(eslint@10.5.0)
       jest:
         specifier: ^30.0.0
         version: 30.4.2(@types/node@20.19.43)(ts-node@10.9.2(@swc/core@1.15.41)(@types/node@20.19.43)(typescript@6.0.3))
@@ -3291,8 +3291,8 @@ packages:
     resolution: {integrity: sha512-/lZCkOxPOWaf1jXAqgICrS8St3BMBccIPvhOSUYuV6VCr1o5nFVG998FnTLt6w2Nxb8Uo0nM8fzmnhp+GY/aEg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  eslint-plugin-unicorn@66.0.0:
-    resolution: {integrity: sha512-+ywdy8T3foyZ2t3nRBujGa3vfOVMobHIi5iLB0L+fogdVO3EiUJ4BAyIacogWytnweLw3hgT70LQL9KoKTY/kA==}
+  eslint-plugin-unicorn@67.0.0:
+    resolution: {integrity: sha512-XEYhNfAFFFYQLq++53iqpgIPFqvjasf5lsUJuCdmd/QvbRfcLbmPTjcTyVEXc5yBudWIg08SSEGgqJtEojk1ug==}
     engines: {node: '>=22'}
     peerDependencies:
       eslint: '>=10.4'
@@ -8310,7 +8310,7 @@ snapshots:
   axios@1.7.4(debug@4.4.3):
     dependencies:
       follow-redirects: 1.16.0(debug@4.4.3)
-      form-data: 4.0.0
+      form-data: 4.0.6
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
@@ -8394,7 +8394,7 @@ snapshots:
   binary-version-check@6.1.0:
     dependencies:
       binary-version: 7.1.0
-      semver: 7.8.0
+      semver: 7.8.4
       semver-truncate: 3.0.0
 
   binary-version@7.1.0:
@@ -9073,7 +9073,7 @@ snapshots:
     dependencies:
       safe-regex: 2.1.1
 
-  eslint-plugin-unicorn@66.0.0(eslint@10.5.0):
+  eslint-plugin-unicorn@67.0.0(eslint@10.5.0):
     dependencies:
       '@babel/helper-validator-identifier': 7.29.7
       '@eslint-community/eslint-utils': 4.9.1(eslint@10.5.0)
@@ -11175,7 +11175,7 @@ snapshots:
 
   semver-truncate@3.0.0:
     dependencies:
-      semver: 7.8.0
+      semver: 7.8.4
 
   semver@6.3.1: {}
 
