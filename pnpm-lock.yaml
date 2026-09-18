@@ -143,7 +143,7 @@ importers:
         version: 18.3.0(eslint@10.10.0)(ts-declaration-location@1.0.7(typescript@7.0.2))(typescript@7.0.2)
       eslint-plugin-perfectionist:
         specifier: ^5.0.0
-        version: 5.11.0(eslint@10.10.0)(typescript@7.0.2)
+        version: 5.11.1(eslint@10.10.0)(typescript@7.0.2)
       eslint-plugin-prettier:
         specifier: ^5.2.1
         version: 5.5.6(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@10.10.0))(eslint@10.10.0)(prettier@3.9.6)
@@ -3468,8 +3468,8 @@ packages:
       typescript:
         optional: true
 
-  eslint-plugin-perfectionist@5.11.0:
-    resolution: {integrity: sha512-kZV1otBcu4xT5R1p+0x1N1wRv4pS+OIbxrA47n5a1fTnN3MWbexOx5eQgbQhGyCNbpvF/rqrbnpkGjumHF+Y0Q==}
+  eslint-plugin-perfectionist@5.11.1:
+    resolution: {integrity: sha512-xloHScnOpin9Jy3CegfzoBeY33ASk0spLyM2sJs0LyNHQjv9m0osUD2PYNT7NrJieZbUR2Ebn4A5Q0+0dOcv+A==}
     engines: {node: ^20.0.0 || >=22.0.0}
     peerDependencies:
       eslint: ^8.45.0 || ^9.0.0 || ^10.0.0
@@ -8610,7 +8610,7 @@ snapshots:
   axios@1.7.4(debug@4.4.3):
     dependencies:
       follow-redirects: 1.16.0(debug@4.4.3)
-      form-data: 4.0.6
+      form-data: 4.0.0
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
@@ -9356,7 +9356,7 @@ snapshots:
       ts-declaration-location: 1.0.7(typescript@7.0.2)
       typescript: 7.0.2
 
-  eslint-plugin-perfectionist@5.11.0(eslint@10.10.0)(typescript@7.0.2):
+  eslint-plugin-perfectionist@5.11.1(eslint@10.10.0)(typescript@7.0.2):
     dependencies:
       '@typescript-eslint/utils': 8.70.0(eslint@10.10.0)(typescript@7.0.2)
       eslint: 10.10.0
